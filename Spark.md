@@ -89,7 +89,49 @@ http://localhost:4040/jobs/
 
 这样Spark就成功运行了。
 
+edit spark conf
+
+```shell
+cp spark-env.sh.template spark-env.sh
+```
+
+spark-env.sh
+
+```sh
+SPARK_MASTER_HOST=localhost
+SPARK_WORKER_CORES=4
+SPARK_WORKER_MEMORY=4g
+SPARK_WORKER_INSTANCES=1
+```
+
+```shell
+./sbin/start-all.sh
+```
+
+ http://localhost:8080/
+
+config multi node
+
+```
+./sbin/stop-all.sh
+```
+
+```shell
+SPARK_MASTER_HOST=localhost
+SPARK_WORKER_CORES=4
+SPARK_WORKER_MEMORY=4g
+SPARK_WORKER_INSTANCES=2
+```
+
+```shell
+spark-shell --master spark://localhost:7077
+```
+
 ## Spark SQL
+
+
+
+
 
 ## Spark Streaming
 
